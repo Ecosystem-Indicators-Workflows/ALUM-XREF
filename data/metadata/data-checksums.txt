@@ -1,0 +1,28 @@
+3b2cd525558266e033973ff5822a5a71  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb_20260814.zip
+7da1e4429e60df2a39cd5554422568ad  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.csv
+442b32ed645ca88228f98e4f7c7d2a77  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.tif
+5d9b7113c9da758e9a474665c6a4e1df  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.tif.aux.xml
+525af470cf8b0aad2a92e2fe26c4ff88  data/source-data/NLUM_v7_1_DescriptiveMetadata_20260814_0.pdf
+2e6385e40cabf7f7a25ecdc90c3be5f7  data/source-data/Crosswalks/~$ALUM-IUCNGET.xlsx
+71ce74c2fbe60ef6187f54d05bd2bd8a  data/source-data/Crosswalks/ALUM-IUCNGET.xlsx
+fc64c9aced1ecf75ac90b1a04047f4db  data/source-data/Maps/NLUM_v7_1_250m_AGIND_2020_21.pdf
+4d26b41d6dec80787f41526d569a4990  data/source-data/Maps/NLUM_v7_1_250m_AGIND_2020_21.png
+994a56ee5a649d98142d643c4a584e04  data/source-data/Maps/NLUM_v7_1_250m_PRIM_2020_21.pdf
+b2c2a9c5a9f8971b9e485fad9b3939f5  data/source-data/Maps/NLUM_v7_1_250m_PRIM_2020_21.png
+9c65e94cc11da3abb48d81a15360c0be  data/source-data/Maps/NLUM_v7_1_250m_SEC_2020_21.pdf
+2f3580cb7cf40580d59b841f5d2c06d2  data/source-data/Maps/NLUM_v7_1_250m_SEC_2020_21.png
+c9778457adf25fa9d2dc625bed9cec3e  data/source-data/Maps/NLUM_v7_1_250m_SIMP_2020_21.pdf
+f9d40dd2bb48161fc81ba547e51bb229  data/source-data/Maps/NLUM_v7_1_250m_SIMP_2020_21.png
+1706a9470cd32e050f07fa99db43fb1a  data/source-data/Maps/Thumbs.db
+d51ff114e5788eb024a0ea70b4de7b28  data/source-data/Symbology/Land use, agricultural industries.lyr
+927c25f6b9202f080fea0f1b921a3847  data/source-data/Symbology/Land use, agricultural industries.lyrx
+6d0bf26a997301a3f432178041d7d62d  data/source-data/Symbology/Land use, agricultural industries.qml
+af9c6638b247783b9426c33559eb04f0  data/source-data/Symbology/Land use, primary.lyr
+36e0d43473be5706c6defe3f8ccbb86a  data/source-data/Symbology/Land use, primary.lyrx
+839afe4d749542db6a9cc6722364ac04  data/source-data/Symbology/Land use, primary.qml
+a6a4d8ca5e1fd4242d39934e0460e496  data/source-data/Symbology/Land use, secondary.lyr
+32a9c82c3ab9b7489d933f5d53db08ab  data/source-data/Symbology/Land use, secondary.lyrx
+1bb729c32e6d0791d439985b7bc506c1  data/source-data/Symbology/Land use, secondary.qml
+a434a71c2ffabe587b4903aa4e388e8f  data/source-data/Symbology/Land use, simplified.lyr
+e376d29c7646a6a1af8690f96a2878e5  data/source-data/Symbology/Land use, simplified.lyrx
+14ecb9cc4849e1cb9caa264a6e707581  data/source-data/Symbology/Land use, simplified.qml

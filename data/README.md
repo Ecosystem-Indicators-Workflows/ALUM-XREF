@@ -4,11 +4,9 @@ All data for the repository belongs under `./data/`, which consists of the follo
 
 ```plaintext
 ├── data/
-  ├── xrefdata/ # Original data, never edited
-  ├── processed_data/ # Analysis-ready data
-  └── metadata/ # e.g. data dictionary, provenance
+  ├── metadata/    # Metadata information e.g. data dictionary, provenance
+  └── source-data/ # Source data used as input in the workflow
 ```
 
-- `xrefdata/` contains data that is *never* edited, any modified versions of those files, such as from data cleaning and processing (whether from hand-editing or programmatic manipulation), is to be written to `processed_data`.
-- `processed_data` contains data files that is ready for analysis, following any data cleaning or processing.
+- `source-data/` contains data from third party sources, we do not track this folder in git. If this folder is empty or missing, follow instructions for data download in the `/scripts/` folder.
 - `metadata/` contains metadata like data dictionaries or provenance information

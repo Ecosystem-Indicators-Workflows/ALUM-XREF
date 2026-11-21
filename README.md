@@ -2,127 +2,197 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# Cross-referencing ecosystem survey name to the IUCN Global Ecosystem Typology: 90m Best-Candidate Spatial Synthesis
+# Adjusting cross-references of modified Australian terrestrial ecosystems to the IUCN Global Ecosystem Typology
 
-**Version:** \#TODO add Zenodo DOI and version number as badge.
-**Release Date:** 2026-11-12\
+**Version:** 0.1.0  
+**Release Date:** 2026-11-21  
 **Dataset License:** [CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/) (with source spatial
-data attribution to (ecosystem survey name) under ecosystem survey data
-license) **Code License:** MIT\
+4.0](https://creativecommons.org/licenses/by/4.0/), with source spatial
+data attribution to Australian Land Use and Management Classification
+(V8) and Land Use of Australia layers (V7.1), Australian Bureau of
+Agricultural and Resource Economics and Sciences, Canberra, under:
+Creative Commons Attribution 4.0.  
+**Code License:** MIT  
 **Workflow Repository:**
-<https://github.com/Ecosystem-Indicators-Workflows/TEMPLATE-XREF>
+<https://github.com/Ecosystem-Indicators-Workflows/ALUM-XREF>
 
 > *Note: This `README.md` is dynamically generated from
-> [`README.qmd`](README.qmd) by inspecting the output GeoTIFFs and CSV
-> tables. To update all statistics after regenerating the data, run
-> `quarto render output-best-candidate/README.qmd`.*
+> [`README.qmd`](README.qmd). The dataset README with the statistics of
+> the output GeoTIFFs and CSV tables is in
+> [`results/output1-best-candidate-raster/`](results/output1-best-candidate-raster/README.qmd);
+> to update it after regenerating the data, run
+> `quarto render results/output1-best-candidate-raster/README.qmd`.*
 
 ------------------------------------------------------------------------
 
-## Authors & Contributors
+## Funding
 
-- **J. R. Ferrer-Paris** (Corresponding author: `j.ferrer@unsw.edu.au`,
-  ORCID: [0000-0002-9554-3395](https://orcid.org/0000-0002-9554-3395)) —
+This work is supported by:
+
+- The **ARC Industry Laureate Fellowship Project** *“Foundations for
+  leading the nature positive ecosystem conservation agenda”*
+  ([IL240100030](https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IL240100030))
+  led by Professor David Keith at UNSW Sydney, in partnership with the
+  Department of Climate Change, Energy, the Environment and Water,
+  International Union for Conservation of Nature (IUCN), Department of
+  Energy, Environment and Water, Department of Biodiversity,
+  Conservation and Attractions, Department of Planning and Environment
+  NSW, and Department of Natural Resources and Environment Tasmania.
+- The **[Ecosystem Indicators Workflows
+  (EIW)](https://doi.org/10.3565/j5sq-a757)** project, which received
+  investment from the **Australian Research Data Commons (ARDC)**. The
+  ARDC is funded by the **National Collaborative Research Infrastructure
+  Strategy (NCRIS)**.
+
+## Author contributions
+
+- **José R. Ferrer-Paris** (ORCID:
+  <https://orcid.org/0000-0002-9554-3395>) — *Centre for Ecosystem
+  Science, UNSW Sydney; IUCN Commission on Ecosystem Management*
+- **David A. Keith** (ORCID: <https://orcid.org/0000-0002-7627-4150>) —
   *Centre for Ecosystem Science, UNSW Sydney; IUCN Commission on
   Ecosystem Management*
-- **David A. Keith** — *Centre for Ecosystem Science, UNSW Sydney; IUCN
-  Commission on Ecosystem Management*
-- **Mark G. Tozer** — *Centre for Ecosystem Science, UNSW Sydney*
-- **Elliot Gould** (ORCID:
-  [0000-0002-6585-538X](https://orcid.org/0000-0002-6585-538X)) —
-  *Centre for Ecosystem Science, UNSW Sydney*
-- **Abhimanyu Raj Singh** (ORCID:
-  [0000-0002-2279-7060](https://orcid.org/0000-0002-2279-7060)) — *QCIF;
-  Centre for Ecosystem Science, UNSW Sydney*
-- **placeholder** — \*placeholder
 
-**Author Contributions:** A1 led the expert elicitation process. A1, A2,
-A3, A4, and A5 contributed membership tables for cross-referencing. JRFP
-led the technical documentation and synthesis workflow. JRFP, EG, and
-ARS contributed scripts for data preparation, validation, analysis, and
-spatial output generation.
+**Author Contributions:** For
+[IL240100030](https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IL240100030):
+DAK is project lead and JRFP is workpackage lead (workflow development).
+For [Ecosystem Indicators Workflows
+(EIW)](https://doi.org/10.3565/j5sq-a757): JRFP is project lead.
 
-# Repository File Structure
+------------------------------------------------------------------------
+
+## About this workflow
+
+This repository applies available cross-referencing information to the
+*Australian Land Use and Management Classification* (version 8) and the
+*Land use of Australia* layers for 2010–11 to 2020–21 (version 7.1).
+This provides a layer of information about the extent of antropogenic
+Ecosystem Functional Groups (EFGs, Level 3) of the IUCN Global Ecosystem
+Typology \[IUCN GET; Keith et al. (2022)\]. This layer can be used in
+compination with other layers to produce extant layers for natural and
+antropogenic ecosystem in Australia. This workflow cleans and checks the
+tables, produce the overlay layers and combines them with other data to
+produce the extant distribution maps at 90 m.
+
+## Repository Structure
+
+The figure shows where things are (the workflow writes into
+`data/processed_data/`, `data/metadata/` and `results/`):
+
+``` text
+NSWPCT-XREF/
+├── data/
+│   ├── xrefdata/      
+│   ├── source-data/   
+│   ├── processed_data/
+│   └── metadata/                  
+├── scripts/
+│   ├── workflow_*.R               
+│   └── functions.R                  
+├── results/
+│   ├── output1-landuse-overlay/   
+│   └── template-zenodo.json, template-datapackage.json
+└── logs  
+├── references/  docs-src/  docs/  assets/
+├── fair/  .fair/  .github/          FAIR checklist assessment (updated by GitHub Actions)
+└── CITATION.cff  codemeta.json  LICENSE  README.qmd  _quarto.yml
+```
+
+- `data/xrefdata/`: expert membership tables.
+- `data/source-data/`: source datasets, downloaded from multiple sources
+  (ignored by Git).
+- `data/processed_data/`: cleaned or processed data.
+- `data/metadata/`: provenance of the input files md5sum check files.
+- `scripts/`: `workflow*.R` (workflow scripts) and `functions.R` (custom
+  functions).
+- `results/`: output datasets; one folder for each output.
+- `references/`, `docs-src/`, `docs/`, `assets/`: references,
+  documentation sources and assets. Core bibliographic references are
+  recorded in `references/main.bib`, including commented sections for
+  main references and for software references. Case-study specific
+  references are to be recorded in `references/additional.bib`,
+  including sections for data sources and other case-study specific
+  references.
+- `fair/`, `.fair/`: FAIR software checklist assessment, updated by
+  GitHub Actions after merges to `main`.
+- `logs`: log files from console outputs, reproducibility log.
+
+## Inputs
+
+| Input | Citation | Persistent link |
+|----|----|----|
+| NSW natural EFGs | Tozer et al. (2026) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24398850.svg)](https://doi.org/10.5281/zenodo.24398850) |
+| Crosswalks ALUM to IUCN GET | Macfarlane et al. (2024);Macfarlane et al. (2025) | [![DOI](https://zenodo.org/badge/DOI/10.25919/qy5a-zj69.svg)](https://doi.org/10.25919/qy5a-zj69) |
+| Land Use of Australia layers (V7.1) | ABARES (2026) | [![DOI](https://zenodo.org/badge/DOI/10.25814/n0z4-5y98.svg)](https://doi.org/10.25814/n0z4-5y98) |
+
+## Outputs
 
 All workflow outputs are written to the `./results/` directory, with
 each key output dataset in its own subdirectory. The `./results/`
 directory is ignored by Git, but each subdirectory contains a
-`README.qmd` file that is committed to the repository. The `README.qmd`
+`README.qmd` file that is committed to the repository. The `README.md`
 files are dynamically generated from the output datasets and contain
 summary statistics, metadata, and references for each dataset.
 
-# Repository Structure
+Published outputs:
+
+| Output | Citation | Persistent link |
+|--------|----------|-----------------|
+| NSW    | TO DO    | TO DO           |
+| AUS    | TO DO    | TO DO           |
 
 ## References
 
-Core bibliographic references are recorded in `references/main.bib`,
-including commented sections for main references and for software
-references. Case-study specifc references are to be recorded in
-`references/additional.bib`, including sections for data sources and
-other case-study specific references.
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 
-# Repository Checklist
+<div id="ref-ALUM_2026" class="csl-entry">
 
-<!-- Delete this section once you have completed the checklist.  -->
+ABARES. 2026. “<span class="nocase">Land use of Australia 2010–11 to
+2020–21</span>.” Canberra: Australian Bureau of Agricultural and
+Resource Economics and Sciences. <https://doi.org/10.25814/n0z4-5y98>.
 
-- [ ] Update `CITATION.cff` with the correct title and authorship
-  information.
-- [ ] Update `README.qmd` with the correct title and authorship
-  information in the YAML header and the `params$variable` variables.
-- [ ] Update `additional.bib` with all case-study specific dataset or
-  other references (including input and output datasets), for example:
+</div>
 
-<!-- -->
+<div id="ref-Keith_2022" class="csl-entry">
 
-    @dataset{OUTPUT1_best_candidate,
-      author       = {Ferrer-Paris, J. R. and
-                      Tozer, Mark G. and
-                      Gould, Elliot and
-                      Singh, Abhimanyu Raj and
-                      Balmer, Jayne and
-                      Kitchener, Anne and
-                      Latinovic, Adelina and
-                      Keith, David A.},
-      title        = {Cross-referencing Tasmanian vegetation map (TASVEG
-                       5.0) to the IUCN Global Ecosystem Typology: 90m
-                       Best-Candidate Spatial Synthesis
-                      },
-      month        = nov,
-      year         = 2026,
-      publisher    = {Zenodo},
-      version      = {0.1.0},
-    }
+Keith, David A., José R. Ferrer-Paris, Emily Nicholson, Melanie J.
+Bishop, Beth A. Polidoro, Eva Ramirez-Llodra, Mark G. Tozer, et al.
+2022. “A Function-Based Typology for Earth’s Ecosystems.” *Nature* 610
+(7932): 513–18. <https://doi.org/10.1038/s41586-022-05318-4>.
 
-<!-- FAIR:START -->
-## FAIR assessment
+</div>
 
-[![FAIR checklist badge](https://fairsoftwarechecklist.net/badge.svg)](https://fairsoftwarechecklist.net/v0.2?f=21&a=30112&i=21201&r=023) ![EIW FAIR score](https://img.shields.io/badge/EIW%20FAIR-21%2F33-orange)
+<div id="ref-Macfarlane_2024" class="csl-entry">
 
-**21 / 33 points · 6 / 15 questions at EIW target** · not yet at EIW minimum
+Macfarlane, Craig, SJD Cox, RJ Francis, R Jordan, DA Keith, RT
+Kingsford, N Liu, et al. 2024. “Methods for Developing Spatial Extent of
+IUCN Ecosystem Functional Groups at 250 m Resolution for Freshwater,
+Terrestrial, Marine and Transitional Realms for Australia: Pre-1750,
+2010-11, 2015-16 and 2020-21. A Report for the National Ecosystem
+Accounting Project.” Australia: CSIRO.
+<https://doi.org/10.25919/13nv-pm70>.
 
-| Principle | Score | EIW target |
-|---|---|---|
-| Findable | 3 / 4 (75%) | 4 / 4 |
-| Accessible | 7 / 10 (70%) | 10 / 10 |
-| Interoperable | 6 / 12 (50%) | 12 / 12 |
-| Reusable | 5 / 7 (71%) | 6 / 7 |
+</div>
 
-<details><summary>Gaps to close (9)</summary>
+<div id="ref-Macfarlane_2026" class="csl-entry">
 
-- **f:q0 Indexed by search engines** (2 / 3): No web page with SEO (Quarto site / WorkflowHub)
-- **a:q1 Persistent identifier (DOI)** (0 / 2): No DOI: a GitHub URL can move or vanish
-- **a:q4 Identifier in metadata** (2 / 3): No DOI in CITATION.cff
-- **i:q0 Open, domain-common formats** (2 / 3): No open geospatial formats (GeoTIFF/COG, GeoPackage)
-- **i:q1 Versioning scheme** (1 / 2): Versions do not follow vX.Y.Z
-- **i:q2 Dependencies specified** (2 / 3): Versions not pinned (add renv.lock)
-- **i:q3 Links to related software** (0 / 2): No links to related software (CITATION.cff references)
-- **i:q4 Links to related data** (1 / 2): No data references in CITATION.cff (add input DOIs)
-- **r:q0 Executable** (0 / 1): Missing: pinned dependencies
+Macfarlane, Craig, Ning Liu, Glenn Newnham, Anna Richards, and Sally
+Tetreault Campbell. 2025. “<span class="nocase">Extent of IUCN Global
+Ecosystem Typology ecosystem functional groups across the marine,
+freshwater and terrestrial realms in Australia: pre-1750 and 2010-11 to
+2023-24</span>.” Australia: CSIRO. <https://doi.org/10.25919/qy5a-zj69>.
 
-</details>
+</div>
 
-![FAIR scores per question](fair/fair-scores.png)
+<div id="ref-tozer_2026_24398850" class="csl-entry">
 
-<sub>Updated 2026-11-21 from commit `18c87ae` by `.fair/fair_check.R`. Edit `.fair/fair-checklist.yml`, not this block.</sub>
-<!-- FAIR:END -->
+Tozer, Mark G., José R. Ferrer-Paris, Abhimanyu Raj Singh, Elliot Gould,
+and David A. Keith. 2026. “Cross-Referencing New South Wales Plant
+Community Types (PCTs) to the IUCN Global Ecosystem Typology: 90m
+Best-Candidate Spatial Synthesis.” Zenodo.
+<https://doi.org/10.5281/zenodo.24398850>.
+
+</div>
+
+</div>

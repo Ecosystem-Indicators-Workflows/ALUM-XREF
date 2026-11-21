@@ -124,5 +124,5 @@ other case-study specific references.
 
 ![FAIR scores per question](fair/fair-scores.png)
 
-<sub>Updated 2026-11-20 from commit `aa73b68` by `.fair/fair_check.R`. Edit `.fair/fair-checklist.yml`, not this block.</sub>
+<sub>Updated 2026-11-21 from commit `18c87ae` by `.fair/fair_check.R`. Edit `.fair/fair-checklist.yml`, not this block.</sub>
 <!-- FAIR:END -->

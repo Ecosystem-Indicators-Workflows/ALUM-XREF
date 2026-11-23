@@ -1,12 +1,9 @@
 # Licensing and Attribution
 
-<!-- Ensure that you replace any placeholder text with <Ecosystem Survey Name>, <survey-data-URL>, <Ecosystem Survey Name - Organisation Name>  -->
-
 This deposit contains spatial datasets, tabular cross-reference lookup tables, documentation, and supporting code scripts.
 
 1. **Datasets, Tables, and Documentation** (`*.tiff`, `*.csv`, `*.qml`, `*.clr`, `README.md`, `datapackage.json`, `.zenodo.json`) are licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**: https://creativecommons.org/licenses/by/4.0/
-2. **Source Spatial Data Attribution (`<Ecosystem Survey Name>`)**: The spatial outputs are derived from `<Ecosystem Survey Name>`, which is supplied by the <Department> under the **Creative Commons Attribution 3.0 Australia (CC BY 3.0 AU)** licence (http://creativecommons.org/licenses/by/3.0/au/). Any reuse of these spatial layers must retain the following attribution:
-   > "Incorporates or derived from `<Ecosystem Survey Name>` from  `<survey-data-URL>` ©`<Ecosystem Survey Name - Organisation Name>`"
+2. **Source Spatial Data Attribution**: This repository uses different source datasets, license information is provided in relevant documentation of each output.
 3. **Code and Scripts** (`*.R`) are licensed under the **MIT License**.
 
 ---

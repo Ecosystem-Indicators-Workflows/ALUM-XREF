@@ -1,3 +1,11 @@
+#' The purpose of this script is to create an overlay layer with the anthropogenic EFGs based on a selected ALUM Land use layer.
+#' Documentation of this script is work in progress
+#'
+#'
+
+#' ## Step 0 Setup
+#
+#| label: libraries
 library(readxl)
 library(readr)
 library(dplyr)
@@ -6,18 +14,21 @@ library(ecoSynthesis)
 library(geco)
 library(terra)
 
-here::i_am("scripts/data-preparation.R")
+#| label: relative paths
+library(here)
 gisdata_dir <- here::here("data/source-data")
-out_dir <- here::here("results/best-candidate")
-if (!dir.exists(out_dir)) {
+out_dir <- here::here("results/output1-landuse-overlay")
+if (!dir.exists(gisdata_dir, out_dir)) {
   dir.create(out_dir, recursive = TRUE)
 }
-
 
 #| label: Custom functions and options
 source(here::here("scripts", "functions.R"))
 
 #' ## Step 1 Check input and output files
+#' We perform file_checks of the input files at the start of the script.
+#' Missing or modified files will be highlighted and the script interrupted if user
+#' action is needed.
 #'
 #| label: Check input files
 input_files <- c(
@@ -30,7 +41,10 @@ input_files_info <- file_checks(
   here::here("data/metadata/data-checksums.txt"),
   "input"
 )
-
+#' Likewise, output files are identified at the start of the script and will be checked
+#' at the end. We use md5 hashes to check file identity. User action is required to
+#' (re-)calculate these after successful completion of the script.
+#'
 #| label: output paths
 output_files <- c(
   "ALUM-xref-best-candidate.csv",
@@ -48,7 +62,12 @@ names(output_files) <- c(
   "target_tiff"
 )
 
-
+#' ## Step 2 Read and validate cross-referencing information
+#' An initial cross-reference was completed as part of the NEAP project on ecosystem extents.
+#' Here we read the crosswalk table.
+#'
+#'
+#| label: read membership table
 xref_ALUM <- read_excel(input_files["xref_tbl"], sheet = "SSSOM") |>
   transmute(
     ID = str_replace(`rdf:subject`, "alum:", ""),
@@ -63,8 +82,13 @@ xref_ALUM <- read_excel(input_files["xref_tbl"], sheet = "SSSOM") |>
   ) |>
   membership_tbl(source_id = "ID", target_id = "obj_id", round = "round")
 
+#' We prepare a lookup table for the IUCN Global Ecosystem Typology based on information
+#' from the IUCN GET vocabulary (available from package ecoSynthesis)
+#| label: IUCN GET lookup table
 IUCN_GET_LUT <- lookup_tbl(IUCN_GET_LUT, id = "efg_id", name = "efg_name")
 
+#' Now we read a lookup table for the ALUM classification (V8)
+#| label: ALUM lookup table
 ALUM_LUT <- read_csv(input_files["source_lut"]) |>
   mutate(
     ID = str_extract(TERTV8, "[0-9\\.]+"),
@@ -72,14 +96,15 @@ ALUM_LUT <- read_csv(input_files["source_lut"]) |>
   ) |>
   lookup_tbl(id = "ID", name = "TERTV8", "eligible")
 
+#' We clean the cross-reference table by filtering source and target ids using the respective
+#' lookup tables. Finally we use the function `check_membership` to validate the data.
+#'
+#| label: Clean and validate membership table.
 xref_ALUM_filtered <- xref_ALUM |>
   filter(ID %in% ALUM_LUT$ID, obj_id %in% IUCN_GET_LUT$efg_id)
-
 check_membership(xref_ALUM_filtered, source = ALUM_LUT, target = IUCN_GET_LUT)
 
-table(xref_ALUM_filtered$obj_id)
-
-
+#' ## Step 3
 ALUMV8 <- rast(input_files["source_tif"])
 
 efg_info <- geco_efg_data() |>

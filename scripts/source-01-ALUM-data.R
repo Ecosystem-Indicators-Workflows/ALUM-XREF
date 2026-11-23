@@ -1,4 +1,4 @@
-here::i_am("scripts/download-ALUM-data.R")
+here::i_am("scripts/01-download-ALUM-data.R")
 data_url <- 'https://www.agriculture.gov.au/sites/default/files/documents/NLUM_v7_1_250m_ALUMV8_2020_21_alb_20260814.zip'
 
 gisdata_dir <- here::here("data/source-data")

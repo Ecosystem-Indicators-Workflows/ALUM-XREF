@@ -1,12 +1,12 @@
 {
   "repository": "Ecosystem-Indicators-Workflows/ALUM-XREF",
-  "commit": "72ec6a8",
-  "date": "2026-11-21",
+  "commit": "d61ab04",
+  "date": "2026-11-23",
   "checklist": "ARDC FAIR Software Checklist v0.2",
-  "ardc_url": "https://fairsoftwarechecklist.net/v0.2?f=21&a=30112&i=21201&r=023",
-  "total": 21,
+  "ardc_url": "https://fairsoftwarechecklist.net/v0.2?f=21&a=30112&i=21301&r=123",
+  "total": 23,
   "total_max": 33,
-  "questions_met": 6,
+  "questions_met": 8,
   "all_met": false,
   "principles": [
     {
@@ -27,18 +27,18 @@
     },
     {
       "principle": "Interoperable",
-      "current": 6,
+      "current": 7,
       "target": 12,
       "max": 12,
-      "pct": 50,
+      "pct": 58,
       "_row": "Interoperable"
     },
     {
       "principle": "Reusable",
-      "current": 5,
+      "current": 6,
       "target": 6,
       "max": 7,
-      "pct": 71,
+      "pct": 86,
       "_row": "Reusable"
     }
   ],
@@ -120,7 +120,7 @@
       "target": 3,
       "max": 3,
       "met": false,
-      "has": "Open formats: json, txt",
+      "has": "Open formats: txt",
       "needs": "No open geospatial formats (GeoTIFF/COG, GeoPackage)"
     },
     {
@@ -136,12 +136,12 @@
     {
       "id": "i:q2",
       "label": "Dependencies specified",
-      "current": 2,
+      "current": 3,
       "target": 3,
       "max": 3,
-      "met": false,
-      "has": "codemeta.json lists dependencies",
-      "needs": "Versions not pinned (add renv.lock)"
+      "met": true,
+      "has": "Pinned Python environment file",
+      "needs": ""
     },
     {
       "id": "i:q3",
@@ -166,12 +166,12 @@
     {
       "id": "r:q0",
       "label": "Executable",
-      "current": 0,
+      "current": 1,
       "target": 1,
       "max": 1,
-      "met": false,
-      "has": "Has README run steps, input data",
-      "needs": "Missing: pinned dependencies"
+      "met": true,
+      "has": "Run steps, dependencies and data available",
+      "needs": ""
     },
     {
       "id": "r:q1",

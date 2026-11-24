@@ -26,16 +26,22 @@ zenodo <- ZenodoManager$new(
   logger = "INFO"
 )
 
+
 # 2. Fetch your embargoed deposition (use your record ID or DOI)
 # rec <- zenodo$getDepositions(
 #   q = "doi:%2210.5281/zenodo.24398850",
 #   exact = TRUE
 # )
 
+# this works, but all depositions need to have a valid draft
 ids <- c(WA = "24207312", NSW = "24398850", TAS = "24034201", NT = "24462545")
 for (id in ids) {
   rec <- zenodo$getDepositionById(id)
-  ## 10.5281/zenodo.24207312
+
+  if (is.null(rec)) {
+    warning("Could not fetch record: ", id)
+    next
+  }
 
   # 3. Check available files on the record
   rec$listFiles(pretty = TRUE)
@@ -48,11 +54,13 @@ for (id in ids) {
   dir.create(download_dir, recursive = TRUE, showWarnings = FALSE)
 
   for (f in rec$files) {
-    # Draft depositions store the download link in f$links$download or f$download
-    dl_url <- if (!is.null(f$links$download)) f$links$download else f$download
-    dest <- file.path(download_dir, basename(f$filename %||% f$key))
+     # Published records store the download URL in f$links$content or f$links$self
+    dl_url <- f$links$content %||% f$links$download %||% f$download
+    fname  <- f$key %||% f$filename
+    dest   <- file.path(download_dir, basename(fname))
 
-    if (!file.exists(dest)) {
+ 
+  if (!file.exists(dest)) {
       resp <- GET(
         url = URLencode(dl_url),
         add_headers(Authorization = paste("Bearer", token)),

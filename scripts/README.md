@@ -23,4 +23,12 @@ Once these steps are completed we save the requirements file. This file can be u
 
 ```sh
 pip freeze > requirements.txt
+
 ```
+
+And now install from requirements in another computer
+
+```sh
+pip install -r requirements.txt 
+```
+

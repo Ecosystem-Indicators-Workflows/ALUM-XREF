@@ -1,9 +1,14 @@
+1a46679bda85f9e1d2ec01ec23e1d2b3  data/source-data/AUS-XREF.tif
+3f15bae74b3442e4fe3d6cdc2baa69dc  data/source-data/AUS-XREF.tif.aux.xml
 3b2cd525558266e033973ff5822a5a71  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb_20260814.zip
 7da1e4429e60df2a39cd5554422568ad  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.csv
 442b32ed645ca88228f98e4f7c7d2a77  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.tif
 5d9b7113c9da758e9a474665c6a4e1df  data/source-data/NLUM_v7_1_250m_ALUMV8_2020_21_alb.tif.aux.xml
 525af470cf8b0aad2a92e2fe26c4ff88  data/source-data/NLUM_v7_1_DescriptiveMetadata_20260814_0.pdf
-2e6385e40cabf7f7a25ecdc90c3be5f7  data/source-data/Crosswalks/~$ALUM-IUCNGET.xlsx
+27c84d63a2644febdb942112a0669945  data/source-data/NSWPCT-xref-target.tiff
+7b693c3592f1fae7825fddff12cad04a  data/source-data/NTVEG-xref-target.tiff
+2b3c044d978939769c33cee0d120cfab  data/source-data/NTVEG-xref-target.tiff.aux.xml
+812fd4bb96e4b3b3833a6448b630a32e  data/source-data/TASVEG-xref-target.tiff
 71ce74c2fbe60ef6187f54d05bd2bd8a  data/source-data/Crosswalks/ALUM-IUCNGET.xlsx
 fc64c9aced1ecf75ac90b1a04047f4db  data/source-data/Maps/NLUM_v7_1_250m_AGIND_2020_21.pdf
 4d26b41d6dec80787f41526d569a4990  data/source-data/Maps/NLUM_v7_1_250m_AGIND_2020_21.png
@@ -26,3 +31,17 @@ a6a4d8ca5e1fd4242d39934e0460e496  data/source-data/Symbology/Land use, secondary
 a434a71c2ffabe587b4903aa4e388e8f  data/source-data/Symbology/Land use, simplified.lyr
 e376d29c7646a6a1af8690f96a2878e5  data/source-data/Symbology/Land use, simplified.lyrx
 14ecb9cc4849e1cb9caa264a6e707581  data/source-data/Symbology/Land use, simplified.qml
+a859089dab0c0f5254b2a9335269d33b  results/output1-landuse-overlay/ALUM-xref-best-candidate.csv
+7337e1b49a6d7d24c6988961b5a4915f  results/output1-landuse-overlay/ALUM-xref-target.clr
+c31a73dcc6e997b853202c195b37eee1  results/output1-landuse-overlay/ALUM-xref-target.qml
+4806bb3485b58351324c54380fca2fda  results/output1-landuse-overlay/ALUM-xref-target.tiff
+1cf06f81adf914347d4854323a377177  results/output1-landuse-overlay/ALUM-xref-target.tiff.aux.xml
+3d1769576692a0a7973d5a56de43a1f6  results/output1-landuse-overlay/IUCN-GET-pixel-lookup.csv
+f06d55248e575e1af99f9960d3cc23d2  results/output2-NSW-extant/IUCN-GET-pixel-lookup.csv
+43d7eb456f98c5364ba048e8446aaa14  results/output2-NSW-extant/NSW-extant-EFG-target.clr
+e66e4772eaf34e95e2aed21ffb495d65  results/output2-NSW-extant/NSW-extant-EFG-target.qml
+d41d6ce0592aeb4bc87f9170d38337b4  results/output2-NSW-extant/NSW-extant-EFG-target.tiff
+6bc4a5e18c71fe0a45424f65102440a5  results/output2-NSW-extant/NSW-extant-EFG-target.tiff.aux.xml
+82e58910c8ed821d24a95f55e0e1dbdb  results/output2-NSW-extant/NSW-extant-EFG-target.tiff.vat.dbf
+4a32631ec684e91f2cf09b7e769a5126  results/preliminaries/ALUM-xref-target-NSW.tiff
+4c765784669c3b786b6ed65bef327d81  results/preliminaries/NSWPCT-xref-target.tiff

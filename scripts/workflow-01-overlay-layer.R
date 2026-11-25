@@ -18,7 +18,7 @@ library(terra)
 library(here)
 gisdata_dir <- here::here("data/source-data")
 out_dir <- here::here("results/output1-landuse-overlay")
-if (!dir.exists(gisdata_dir, out_dir)) {
+if (!dir.exists(out_dir)) {
   dir.create(out_dir, recursive = TRUE)
 }
 

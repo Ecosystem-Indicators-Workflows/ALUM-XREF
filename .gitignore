@@ -7,6 +7,7 @@
 **/*.quarto_ipynb
 results/*/*
 !results/*/README.qmd
+!results/*/LICENSE
 data/source-data/
 
 

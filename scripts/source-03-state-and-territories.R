@@ -34,7 +34,13 @@ zenodo <- ZenodoManager$new(
 # )
 
 # this works, but all depositions need to have a valid draft
-ids <- c(WA = "24207312", NSW = "24398850", TAS = "24034201", NT = "24462545")
+ids <- c(
+  WA = "24207312",
+  NSW = "24398850",
+  TAS = "24034201",
+  NT = "24462545",
+  QLD = "24522285"
+)
 for (id in ids) {
   rec <- zenodo$getDepositionById(id)
 
@@ -54,13 +60,12 @@ for (id in ids) {
   dir.create(download_dir, recursive = TRUE, showWarnings = FALSE)
 
   for (f in rec$files) {
-     # Published records store the download URL in f$links$content or f$links$self
+    # Published records store the download URL in f$links$content or f$links$self
     dl_url <- f$links$content %||% f$links$download %||% f$download
-    fname  <- f$key %||% f$filename
-    dest   <- file.path(download_dir, basename(fname))
+    fname <- f$key %||% f$filename
+    dest <- file.path(download_dir, basename(fname))
 
- 
-  if (!file.exists(dest)) {
+    if (!file.exists(dest)) {
       resp <- GET(
         url = URLencode(dl_url),
         add_headers(Authorization = paste("Bearer", token)),
